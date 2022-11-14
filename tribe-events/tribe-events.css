@@ -1,0 +1,21 @@
+.tribe-theme-parent-twentyfifteen #tribe-events, .tribe-theme-twentyfifteen #tribe-events {
+	background: none;
+	margin: 0;
+	padding-top: 0;
+}
+.tribe-theme-parent-twentyfifteen.tribe-events-page-template #tribe-events-content-wrapper, .tribe-theme-twentyfifteen.tribe-events-page-template #tribe-events-content-wrapper {
+	padding: 0;
+}
+.tribe-theme-parent-twentyfifteen .tribe-events-list .type-tribe_events, .tribe-theme-parent-twentyfifteen .tribe-events-list .type-tribe_events.tribe-events-first, .tribe-theme-twentyfifteen .tribe-events-list .type-tribe_events, .tribe-theme-twentyfifteen .tribe-events-list .type-tribe_events.tribe-events-first {
+	padding: 0.5em 1.75em;
+}
+.tribe-theme-parent-twentyfifteen.events-single.tribe-events-page-template #tribe-events-pg-template, .tribe-theme-twentyfifteen.events-single.tribe-events-page-template #tribe-events-pg-template {
+	padding-top: 0;
+}
+.tribe-theme-parent-twentyfifteen.events-single.tribe-events-page-template #tribe-events-content, .tribe-theme-twentyfifteen.events-single.tribe-events-page-template #tribe-events-content {
+	padding: 3% 5%;
+}
+.tribe-theme-parent-twentyfifteen.single-tribe_events .tribe-events-single, .tribe-theme-twentyfifteen.single-tribe_events .tribe-events-single {
+	box-shadow: none;
+	margin: 0 8.3333%;
+}
