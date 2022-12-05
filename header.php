@@ -20,6 +20,8 @@
 	<![endif]-->
 	<script>(function(){document.documentElement.className='js'})();</script>
 	<?php wp_head(); ?>
+	<link rel="stylesheet" type="text/css" href="https://tickets.mv-sulzbach.de/MV/markus-passion/widget/v1.css">
+<script type="text/javascript" src="https://tickets.mv-sulzbach.de/widget/v1.de.js" async></script>
 </head>
 
 <body <?php body_class(); ?>>

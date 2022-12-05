@@ -1,5 +1,5 @@
 <?php
-include("mail.php");
+include_once("mail.php");
 function mvsu_create_user($email_address,$display_name,$register){
 	if( null == username_exists( $email_address ) ) {
 	 	$login = $email_address;
@@ -34,7 +34,7 @@ function mvsu_reset_pass($id){
 	$user = get_user_by('id',$id);
 	$password = wp_generate_password( 12, false );
 	wp_set_password($password,$user->ID);
-	smtpmailer($user->user_email, 'wordpress@mv-sulzbach.de', 'MV Sulzbach', 'MV Edelweiss Sulzbach Homepage', 'Hallo '.$user->display_name.', <br /><br /> dein Passwort auf <a href="http://mv-sulzbach.de">http://mv-sulzbach.de</a> wurde soeben zurückgesetzt. Der Benutzername ist ' .$user->user_login. ', das Passwort ist: ' . $password .'.<br />Bitte &auml;ndere das Passwort schnellstm&ouml;glich, indem du dich auf der Seite einloggst und dann unten links auf "Passwort &auml;ndern" klickst!<br /><br />Dein Wordpress (i.A. MV "Edelweiss" Sulzbach)');
+	smtpmailer($user->user_email, 'wordpress@mv-sulzbach.de', 'MV Sulzbach', 'MV Edelweiss Sulzbach Homepage', 'Hallo '.$user->display_name.', <br /><br /> dein Passwort auf <a href="http://mv-sulzbach.de">http://mv-sulzbach.de</a> wurde soeben zur&uumlckgesetzt. Der Benutzername ist ' .$user->user_login. ', das Passwort ist: ' . $password .'.<br />Bitte &auml;ndere das Passwort schnellstm&ouml;glich, indem du dich auf der Seite einloggst und dann unten links auf "Passwort &auml;ndern" klickst!<br /><br />Dein Wordpress (i.A. MV "Edelweiss" Sulzbach)');
 }
 function my_generate_ical_feed( $post = null ) {
 
