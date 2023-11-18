@@ -16,10 +16,10 @@ function teilnahme(uid,abs,divid,update_stats) {
 			if(!a){
 			    if(abs){
 				document.getElementById("teilnahme-"+divid).innerHTML="Sie nehmen teil.";
-				document.getElementById("absage-"+divid).innerHTML='<button class="teilnahme_button" type="button" onclick="absagen('+uid+','+divid+','+update_stats+');">Absagen</button>';
+				document.getElementById("absage-"+divid).innerHTML='<button class="teilnahme_button tribe-common-c-btn" type="button" onclick="absagen('+uid+','+divid+','+update_stats+');">Absagen</button>';
 			    }else{
 				document.getElementById("absage-"+divid).innerHTML="Sie haben abgesagt.";
-				document.getElementById("teilnahme-"+divid).innerHTML='<button class="teilnahme_button" type="button" onclick="teilnahme('+uid+',true,'+divid+','+update_stats+');">Teilnehmen</button>';
+				document.getElementById("teilnahme-"+divid).innerHTML='<button class="teilnahme_button tribe-common-c-btn" type="button" onclick="teilnahme('+uid+',true,'+divid+','+update_stats+');">Teilnehmen</button>';
 			    }
 			    document.getElementById("popup-"+divid).className='overlayHidden';
 			}else{

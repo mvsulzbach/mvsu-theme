@@ -1,0 +1,78 @@
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-l-container {
+    padding-top: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.tribe-events .tribe-events-calendar-list__month-separator {
+    background-color: #c0c0c0;
+    font-size: 20px;
+    display: block;
+    margin: 1.5em 0;
+    padding: 6px 10px;
+}
+
+.tribe-common--breakpoint-medium.tribe-common .tribe-common-h6--min-medium {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tribe-events .tribe-events-calendar-list__month-separator:after {
+    background: none;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-row {
+    border-top: 10px #c00000 solid;
+    margin: 1.5em 1em !important;
+    background-color: white;
+}
+
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event {
+    margin-right: 2em;
+    box-shadow: none;
+    padding: 0.75em 0 0.75em 8px;
+    flex-direction: row;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-row.weekend {
+    border-top-color: #398C42;
+}
+
+.tribe-events .tribe-events-calendar-list__event-datetime-wrapper {
+    display: inline;
+    margin-right: 1em;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-venue {
+    display: inline;
+}
+
+.tribe-events .tribe-events-calendar-list__event-date-tag {
+    border-right: 2px var(--tec-color-text-secondary) solid;
+}
+
+.tribe-events .tribe-events-calendar-list__event-date-tag-weekday {
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.tribe-events .tribe-events-calendar-list__event-date-tag-daynum {
+    font-size: 35px !important;
+    margin-top: 5px;
+}
+
+.teilnahme {
+    flex: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.hoverpopup {position:absolute;z-index:200;padding: 3px;margin-left: 10px;margin-top: 5px;width:400px;background-color: #c0c0c0;color: black;font-size: 0.95em;border-radius:3px;text-align:left}
+#schliessen {position: absolute;margin: 0;right: 0;top: 0;background: #c32e04;color: white;border-radius: unset;}
+#absage-button{margin-top:10px}
+.tribe-common textarea.grund_area {
+    resize: horizontal;
+}

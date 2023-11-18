@@ -189,4 +189,11 @@ function my_generate_ical_feed( $post = null ) {
 
 	}
 
+
+
+	function mvsu_scripts() {
+		wp_enqueue_script( 'mvsu-script', get_template_directory_uri() . '/../mvsu/mvsu.min.js', array(), '20230925', true );
+
+	}
+	add_action( 'wp_enqueue_scripts', 'mvsu_scripts' );
 ?>

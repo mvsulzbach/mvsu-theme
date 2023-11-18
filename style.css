@@ -130,47 +130,23 @@ a.Linktext img{display:inherit;}
 .post,.post+.post,.type-page{background-color:white;border-top:15px #C00000 solid;}
 .entry-footer{background-color:#C0C0C0;border-top:5px #c00000 solid}
 .site-footer{background-color:#c0c0c0}
-.events-list #tribe-events-content-wrapper{max-width:1000px}
-.tribe-events-list-separator-month{background-color:#c0c0c0;margin-bottom:1.5em;font-size:20px}
-.events-list #tribe-events-content-wrapper,#tribe-events-pg-template{max-width:1400px}
-.tribe-events-list-separator-month + .type-tribe_events.tribe-events-first{padding:0.5em 1.75em}
+
 .site{max-width: 2000px;background:linear-gradient(135deg, #FEFFCB 10%, #FEFF8E 70%) no-repeat fixed 0% 0%}
 .widgettitle{color:white;padding:0px 20%}
-.tribe-events-list .type-tribe_events{background-color:white;border-top:10px #C00000 solid;padding:0.4em 1.75em;margin-left:1.5em;margin-right:1.5em;margin-top:1em}
 .post-navigation a{padding: 3% 7%}
-.tribe-events-single, #tribe-events-content{padding: 3% 5%;margin-top:5%}
-.tribe-events-list h2.tribe-events-list-event-title{font-size: 0.8em}
-.tribe-events-list h2.tribe-events-list-event-title-auftritt{font-size: 1.5em;margin-bottom:10px}
-.tribe-events-loop .tribe-events-event-meta{font-size:0.8em;width:50%;float:left;border:0px;background-color:white}
-.single-tribe_events h2.tribe-events-single-event-title{font-size:2.4em}
-.tribe-events-event-meta .tribe-event-date-start,.tribe-events-event-meta .tribe-event-time,.tribe-events-event-meta .time-details,.tribe-events-event-meta .author{font-size:0.95em}
-.ecs-event .date-start,.ecs-event .venue{font-size:20px}
-.tribe-events-list-description{font-size:0.8em}
-.vevent{background-color:white;border-top:10px #C00000 solid}
-.teilnahme_buttons,.absage_buttons{float:left;margin-bottom:15px}
-.teilnahme_buttons{margin-right:15%}
 #galleria{height:500px}
-.tribe-events-single .teilnahme{padding-top:40px}
-.teilnahme_stat_text{float:left;padding-right:10px}
-.tribe_events{float:none}
+
 .clear{clear:both;height:5px}
-.tribe-events-ical-list{margin-bottom:30px;float:right;clear:both}
-.custom_reg_input{margin-bottom:40px}
-.type-tribe_events.weekend{border-top-color:#398C42}
+
 .overlayHidden{display: none}
-.overlay {width: 20em;background: #fffbf0;border: 1px solid #e7c157;position: fixed;top:10%;left:-10%;margin: auto;padding: 1em;z-index:1}
-#schliessen {position: absolute;margin: 0;right: 0;top: 0;background: #c32e04;color: white}
-#absage-button{margin-top:10px}
-.tribe-events-list .tribe-events-venue-details{border:0px}
-.hoverpopup {position:absolute;z-index:200;padding: 3px;margin-left: 10px;margin-top: 5px;width:400px;background-color: #c0c0c0;color: black;font-size: 0.95em;border-radius:3px;text-align:left}
+.tribe-common div.overlay {width: 20em;background: #fffbf0;border: 1px solid #e7c157;position: fixed;top:10%;left:-10%;margin: auto;padding: 1em;z-index:1}
 @media screen and (min-width:30em){
-.teilnahme{float:left;width:50%}
-.tribe-events-schedule{width:50%;float:left}
-.overlay{right:30%;left:auto}
-#zusage-button{margin-right:30px}
-body::before{width:29%;max-width:413px}
-.hentry .hentry{padding-top: 0;margin: 0}
+  .overlay{right:30%;left:auto !important;}
+  body::before{width:29%;max-width:413px}
+  .hentry .hentry{padding-top: 0;margin: 0}
 }
+
+
 /*
  * The MIT License
  * Copyright (c) 2012 Matias Meno <m@tias.me>
@@ -569,3 +545,6 @@ body::before{width:29%;max-width:413px}
 .dropzone .dz-message .note { font-size: 0.8em; font-weight: 200; display: block; margin-top: 1.4rem; }
 
 
+.tribe-common .tribe-common-c-btn, .tribe-common button.tribe-common-c-btn, .tribe-common a.tribe-common-c-btn {
+  background-color: #333333;
+}
