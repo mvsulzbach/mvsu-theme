@@ -58,6 +58,10 @@ if ( empty( $disable_event_search ) ) {
 
 		<div class="tribe-events-calendar-list">
 
+			<?php
+				$pids = [];
+			?>
+
 			<?php foreach ( $events as $event ) : ?>
 
                 <?php 
