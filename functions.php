@@ -1,5 +1,6 @@
 <?php
 include_once("mail.php");
+
 function mvsu_create_user($email_address,$display_name,$register){
 	if( null == username_exists( $email_address ) ) {
 	 	$login = $email_address;
@@ -192,7 +193,12 @@ function my_generate_ical_feed( $post = null ) {
 
 
 	function mvsu_scripts() {
-		wp_enqueue_script( 'mvsu-script', get_template_directory_uri() . '/../mvsu/mvsu.min.js', array(), '20230925', true );
+		wp_enqueue_script( 'mvsu-script', get_template_directory_uri() . '/../mvsu/mvsu.min.js', array('jquery'), '20230925', true );
+
+		wp_localize_script( 'mvsu-script', 'mvsuSettings', array(
+			'root' => esc_url_raw( rest_url() ),
+			'nonce' => wp_create_nonce( 'wp_rest' )
+		) );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'mvsu_scripts' );

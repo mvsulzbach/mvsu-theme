@@ -1,4 +1,27 @@
 var editingallowed=false;
+
+function get_participations(uid,divids) {
+	jQuery.ajax( {
+			url: mvsuSettings.root + 'mvsu_participation/v1/query_multi_self?pid='+divids,
+			method: 'GET',
+			beforeSend: function ( xhr ) {
+				xhr.setRequestHeader( 'X-WP-Nonce', mvsuSettings.nonce );
+			}
+	} ).done( function ( response ) {
+		var teilnahmen = response.split(",");
+		var index;
+		var pids = divids.split(",");
+		for(index = 0; index < pids.length; ++index){
+			if(teilnahmen[index] == 1){
+				document.getElementById("teilnahme-"+pids[index]).innerHTML="Sie nehmen teil.";
+			}
+			if(teilnahmen[index] == 0){
+				document.getElementById("absage-"+pids[index]).innerHTML="Sie haben abgesagt.";
+			}
+		}
+	} );
+}
+
 function teilnahme(uid,abs,divid,update_stats) {
 	if(!update_stats){
 		var update_stats=false;
@@ -10,30 +33,38 @@ function teilnahme(uid,abs,divid,update_stats) {
 		a = true;
 		var grund = "Absage";
 	}
-	var xmlhttp = new XMLHttpRequest();
-       xmlhttp.onreadystatechange = function() {
-        	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	if(abs||grund!=""){
+		jQuery.ajax( {
+			url: mvsuSettings.root + 'mvsu_participation/v1/change_participation?pid='+divid,
+			method: 'PUT',
+			beforeSend: function ( xhr ) {
+				xhr.setRequestHeader( 'X-WP-Nonce', mvsuSettings.nonce );
+			},
+			data: {
+				'participation': abs,
+				'reason': grund	
+			}
+		} ).done( function ( response ) {
+			console.log('hallo');
+			console.log(a);
+			console.log(abs);
 			if(!a){
-			    if(abs){
+				if(abs == 1){
 				document.getElementById("teilnahme-"+divid).innerHTML="Sie nehmen teil.";
 				document.getElementById("absage-"+divid).innerHTML='<button class="teilnahme_button tribe-common-c-btn" type="button" onclick="absagen('+uid+','+divid+','+update_stats+');">Absagen</button>';
-			    }else{
+				}else{
 				document.getElementById("absage-"+divid).innerHTML="Sie haben abgesagt.";
 				document.getElementById("teilnahme-"+divid).innerHTML='<button class="teilnahme_button tribe-common-c-btn" type="button" onclick="teilnahme('+uid+',true,'+divid+','+update_stats+');">Teilnehmen</button>';
-			    }
-			    document.getElementById("popup-"+divid).className='overlayHidden';
+				}
+				document.getElementById("popup-"+divid).className='overlayHidden';
 			}else{
-			    document.getElementById("popup").className='overlayHidden';
+				document.getElementById("popup").className='overlayHidden';
 			}
 			if(update_stats){
 				get_num_participations(divid);
 				get_participating_names(divid);
 			}
-            	}
-      	}
-	if(abs||grund!=""){
-      		xmlhttp.open("GET", "/ajax/register_participation.php?pid="+divid+"&abs="+abs+"&grund="+grund, true);
-       		xmlhttp.send();
+		} );
 	}else{
 		document.getElementById("hinweis-"+divid).innerHTML="Bitte Grund angeben!";
 	}
@@ -183,25 +214,4 @@ function getPositionTo(element,to) {
 function allowEditing(){
 	editingallowed = true;
 	document.getElementById('allowediting').disabled = true;
-}
-
-function get_participations(uid,divids) {
-	var xmlhttp = new XMLHttpRequest();
-       xmlhttp.onreadystatechange = function() {
-        	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			var teilnahmen = xmlhttp.responseText.split(",");
-			var index;
-			var pids = divids.split(",");
-			for(index = 0; index < pids.length; ++index){
-				if(teilnahmen[index] == 1){
-              				document.getElementById("teilnahme-"+pids[index]).innerHTML="Sie nehmen teil.";
-				}
-				if(teilnahmen[index] == 0){
-              				document.getElementById("absage-"+pids[index]).innerHTML="Sie haben abgesagt.";
-				}
-			}
-            	}
-      	}
-      	xmlhttp.open("GET", "/ajax/get_participations.php?pid="+divids, true);
-       xmlhttp.send();
 }

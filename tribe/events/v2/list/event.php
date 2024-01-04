@@ -88,7 +88,7 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event', 't
 					?>
 
 					<div id="teilnahme-<?php the_ID() ?>" class="teilnahme_buttons">
-					<button class="teilnahme_button tribe-common-c-btn" type="button" onclick="teilnahme(<?php echo $uid ?>,true,<?php the_ID() ?>);">Teilnehmen</button>
+					<button class="teilnahme_button tribe-common-c-btn" type="button" onclick="teilnahme(<?php echo $uid ?>,1,<?php the_ID() ?>);">Teilnehmen</button>
 					</div>
 					<div id="absage-<?php the_ID() ?>" class="absage_buttons">
 					<button class="teilnahme_button tribe-common-c-btn" type="button" onclick="absagen(<?php echo $uid ?>,<?php the_ID() ?>,false);">Absagen</button>
@@ -99,7 +99,7 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event', 't
 							<div id="event-name-<?php the_ID() ?>"><b><?php the_title() ?></b></div><div><?php echo tribe_events_event_schedule_details() ?></div><div>Grund</div>
 							<textarea class="grund_area" id="grund-<?php the_ID() ?>" cols="50" rows="3"></textarea>
 							<div class="hinweis" id="hinweis-<?php the_ID() ?>"></div>
-							<button class="tribe-common-c-btn" id="absage-button" onclick="teilnahme(<?php echo $uid ?>,false,<?php the_ID() ?>);">Absagen</button>
+							<button class="tribe-common-c-btn" id="absage-button" onclick="teilnahme(<?php echo $uid ?>,0,<?php the_ID() ?>);">Absagen</button>
 							<button class="tribe-common-c-btn" id="schliessen" onclick="document.getElementById('popup-<?php the_ID() ?>').className='overlayHidden';">X</button>
 						</div>
 					<?php else: ?>
