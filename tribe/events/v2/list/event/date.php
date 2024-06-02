@@ -23,10 +23,20 @@ use Tribe__Date_Utils as Dates;
 $event_date_attr = $event->dates->start->format( Dates::DBDATEFORMAT );
 
 ?>
+<?php if (!tribe_event_is_all_day($event)) : ?>
 <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2 tribe-common-h5--min-medium">
 	<?php $this->template( 'list/event/date/featured' ); ?>
 	<time class="tribe-events-calendar-list__event-datetime tribe-common-b2--bold" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
-		<?php echo $event->dates->start->format("H:i") ?> - <?php echo $event->dates->end->format("H:i") ?>
+		<?php
+			$start_time = $event->dates->start->format("H:i");
+			$end_time = $event->dates->end->format("H:i");
+			if ($start_time === $end_time) :
+		?>
+			<?php echo $event->dates->start->format("H:i") ?>
+		<?php else : ?>
+			<?php echo $event->dates->start->format("H:i") ?> - <?php echo $event->dates->end->format("H:i") ?>
+		<?php endif; ?>
 	</time>
 	<?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
 </div>
+<?php endif; ?>

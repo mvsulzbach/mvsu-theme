@@ -64,19 +64,6 @@ if ( empty( $disable_event_search ) ) {
 
 			<?php foreach ( $events as $event ) : ?>
 
-                <?php 
-                    $pid = get_the_ID();
-                    $auftritt = tribe_event_in_category ("auftritt",$pid);
-                    $gemeinschaft = tribe_event_in_category ("gemeinschaft",$pid);
-                    $probe = tribe_event_in_category ("probe",$pid);
-                    $registerprobe = tribe_event_in_category ("registerprobe",$pid);
-                    $staendchen = tribe_event_in_category ("staendchen",$pid);
-                    $kirchlich = tribe_event_in_category("kirchlich",$pid);
-                    $kommunal = tribe_event_in_category("kommunal",$pid);
-                    $cat=$auftritt||$gemeinschaft||$probe||$registerprobe||$staendchen||$kirchlich||$kommunal;
-                    if($cat){ $pids[] = $pid;}
-                ?>
-
 				<?php $this->setup_postdata( $event ); ?>
 
 				<?php $this->template( 'list/month-separator', [ 'event' => $event ] ); ?>
@@ -84,15 +71,6 @@ if ( empty( $disable_event_search ) ) {
 				<?php $this->template( 'list/event', [ 'event' => $event ] ); ?>
 
 			<?php endforeach; ?>
-
-            <?php if(is_user_logged_in()) : ?>
-                <?php
-                $ids = implode(",",$pids);
-                $current_user = wp_get_current_user();
-                $uid = $current_user->ID;
-                ?>
-                <script type="text/javascript">jQuery(document).ready( function($) {get_participations(<?php echo $uid; ?>,<?php echo json_encode($ids); ?>);});</script>
-            <?php endif; ?>
 
 		</div>
 

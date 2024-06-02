@@ -13,6 +13,7 @@ function get_participations(uid,divids) {
 		var pids = divids.split(",");
 		for(index = 0; index < pids.length; ++index){
 			if(teilnahmen[index] == 1){
+				console.log(pids[index])
 				document.getElementById("teilnahme-"+pids[index]).innerHTML="Sie nehmen teil.";
 			}
 			if(teilnahmen[index] == 0){
@@ -111,20 +112,21 @@ function add_teilnahme(uid,abs,divid,update_stats) {
 }
 
 function get_participation(uid,divid) {
-	var xmlhttp = new XMLHttpRequest();
-       xmlhttp.onreadystatechange = function() {
-        	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			if(xmlhttp.responseText == 1){
-              		document.getElementById("teilnahme-"+divid).innerHTML="Sie nehmen teil.";
+	jQuery.ajax( {
+			url: mvsuSettings.root + 'mvsu_participation/v1/query_self?pid='+divid,
+			method: 'GET',
+			beforeSend: function ( xhr ) {
+				xhr.setRequestHeader( 'X-WP-Nonce', mvsuSettings.nonce );
 			}
-			if(xmlhttp.responseText == 0){
-              		document.getElementById("absage-"+divid).innerHTML="Sie haben abgesagt.";
-			}
-
-            	}
-      	}
-      	xmlhttp.open("GET", "/ajax/get_participation.php?pid="+divid, true);
-       xmlhttp.send();
+	} ).done( function ( response ) {
+		var teilnahme = response;
+		if(teilnahme == 1){
+			document.getElementById("teilnahme-"+divid).innerHTML="Sie nehmen teil.";
+		}
+		if(teilnahme == 0){
+			document.getElementById("absage-"+divid).innerHTML="Sie haben abgesagt.";
+		}
+	} );
 }
 
 function get_num_participations(divid){

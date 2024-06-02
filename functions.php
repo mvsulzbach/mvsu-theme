@@ -190,15 +190,29 @@ function my_generate_ical_feed( $post = null ) {
 
 	}
 
+	add_filter("script_loader_tag", "add_module_to_my_script", 10, 3);
+	function add_module_to_my_script($tag, $handle, $src)
+	{
+		if ('mvsu-components' === $handle) {
+			$tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+		}
+
+		return $tag;
+	}
+
 
 
 	function mvsu_scripts() {
-		wp_enqueue_script( 'mvsu-script', get_template_directory_uri() . '/../mvsu/mvsu.min.js', array('jquery'), '20230925', true );
-
-		wp_localize_script( 'mvsu-script', 'mvsuSettings', array(
+		$content = array(
 			'root' => esc_url_raw( rest_url() ),
 			'nonce' => wp_create_nonce( 'wp_rest' )
-		) );
+		);
+
+		wp_enqueue_script( 'mvsu-script', get_template_directory_uri() . '/../mvsu/mvsu.min.js', array('jquery'), '20230925', true );
+		wp_localize_script( 'mvsu-script', 'mvsuSettings', $content);
+		wp_enqueue_script( 'mvsu-components-polyfills', get_template_directory_uri() . '/../mvsu/mvsu-components-polyfills.min.js', array('jquery'), '20230925', true );
+		wp_enqueue_script( 'mvsu-components', get_template_directory_uri() . '/../mvsu/mvsu-components.min.js', array('jquery', 'mvsu-components-polyfills'), '20230925', true );
+		wp_localize_script( 'mvsu-components', 'mvsuSettings', $content);
 
 	}
 	add_action( 'wp_enqueue_scripts', 'mvsu_scripts' );
