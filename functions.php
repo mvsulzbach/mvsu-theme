@@ -210,8 +210,8 @@ function my_generate_ical_feed( $post = null ) {
 
 		wp_enqueue_script( 'mvsu-script', get_template_directory_uri() . '/../mvsu/mvsu.min.js', array('jquery'), '20230925', true );
 		wp_localize_script( 'mvsu-script', 'mvsuSettings', $content);
-		wp_enqueue_script( 'mvsu-components-polyfills', get_template_directory_uri() . '/../mvsu/mvsu-components-polyfills.min.js', array('jquery'), '20230925', true );
-		wp_enqueue_script( 'mvsu-components', get_template_directory_uri() . '/../mvsu/mvsu-components.min.js', array('jquery', 'mvsu-components-polyfills'), '20230925', true );
+		wp_enqueue_script( 'mvsu-components-polyfills', get_template_directory_uri() . '/../mvsu/mvsu-components/polyfills.js', array('jquery'), '20230925', true );
+		wp_enqueue_script( 'mvsu-components', get_template_directory_uri() . '/../mvsu/mvsu-components/main.js', array('jquery', 'mvsu-components-polyfills'), '20230925', true );
 		wp_localize_script( 'mvsu-components', 'mvsuSettings', $content);
 
 	}

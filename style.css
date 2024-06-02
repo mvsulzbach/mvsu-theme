@@ -8,6 +8,7 @@ Template:       twentyfifteen
 Version:        2.0
 */
 @import url("../twentyfifteen/style.css");
+@import url("mvsu-components/styles.css");
 
 /* noto-serif-regular - latin */
 @font-face {
@@ -139,7 +140,6 @@ a.Linktext img{display:inherit;}
 .clear{clear:both;height:5px}
 
 .overlayHidden{display: none}
-.tribe-common div.overlay {width: 20em;background: #fffbf0;border: 1px solid #e7c157;position: fixed;top:10%;left:-10%;margin: auto;padding: 1em;z-index:1}
 @media screen and (min-width:30em){
   .overlay{right:30%;left:auto !important;}
   body::before{width:29%;max-width:413px}

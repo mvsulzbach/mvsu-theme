@@ -184,12 +184,30 @@
 }
 
 .hoverpopup {position:absolute;z-index:200;padding: 3px;margin-left: 10px;margin-top: 5px;width:400px;background-color: #c0c0c0;color: black;font-size: 0.95em;border-radius:3px;text-align:left}
-.tribe-common .tribe-common-c-btn.close-button {position: absolute;margin: 0;right: 0;top: 0;background: #c32e04;color: white;border-radius: unset;}
-.tribe-common .tribe-common-c-btn.cancel-button{margin-top:10px}
+.tribe-common .tribe-common-c-btn.close-button {
+    position: absolute;
+    margin: 0;
+    right: 0;
+    top: 0;
+    background: #c32e04;
+    color: white;
+    border-radius: unset;
+    border-top-right-radius: 8px;
+}.tribe-common .tribe-common-c-btn.close-button:hover {
+    border-radius: unset;
+    border-top-right-radius: 8px;
+}
+.tribe-common .tribe-common-c-btn.cancel-button {margin-top:10px}
 .tribe-common textarea.reason_area {
     resize: horizontal;
 }
 
 mvsu-registration div {
     text-align: center;
+}
+.cdk-global-scrollblock {
+    position: initial;
+    width: initial;
+    overflow: hidden;
+    scrollbar-gutter: stable;
 }
