@@ -84,7 +84,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 
 	<?php echo $title; ?>
 
-	<div class="tribe-events-schedule-wrapper tribe-common tribe-common--breakpoint-medium">
+	<div class="tribe-events-schedule-wrapper tribe-common">
 
 		<div class="tribe-events-schedule tribe-clearfix">
 			<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
@@ -95,7 +95,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 
 		<div class="teilnahme">
 			<?php if (mvsu_event_has_registration($event_id)) : ?>
-				<mvsu-registration divid="<?php the_ID() ?>" title="<?php the_title() ?>" schedule_details="<?php echo tribe_events_event_schedule_details(null, '', '', false) ?>" ></mvsu-registration>
+				<mvsu-registration initial="<?php echo getParticipation(get_current_user_id(), $event_id) ?>" divid="<?php the_ID() ?>" title="<?php the_title() ?>" higher_privileges="<?php echo mvsu_higher_privileges() ?>" schedule_details="<?php echo tribe_events_event_schedule_details(null, '', '', false) ?>" ></mvsu-registration>
 			<?php endif; ?>
 		</div>
 
@@ -133,6 +133,10 @@ $cost  = tribe_get_formatted_cost( $event_id );
 		</div> <!-- #post-x -->
 		<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
 	<?php endwhile; ?>
+
+	<?php if (mvsu_event_has_registration($event_id) && mvsu_higher_privileges()) : ?>
+		<mvsu-participating-members divid="<?php the_ID() ?>"></mvsu-participating-members>
+	<?php endif; ?>
 
 	
 	<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>

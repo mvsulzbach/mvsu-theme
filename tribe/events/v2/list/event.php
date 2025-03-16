@@ -48,7 +48,7 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event', 't
 				<?php 
 				$event_id = get_the_ID();
 				if (mvsu_event_has_registration($event_id)) : ?>
-					<mvsu-registration divid="<?php the_ID() ?>" title="<?php the_title() ?>" schedule_details="<?php echo tribe_events_event_schedule_details(null, '', '', false) ?>" ></mvsu-registration>
+					<mvsu-registration initial="<?php echo getParticipation(get_current_user_id(), $event_id) ?>" divid="<?php the_ID() ?>" title="<?php the_title() ?>" schedule_details="<?php echo tribe_events_event_schedule_details(null, '', '', false) ?>" ></mvsu-registration>
 				<?php endif; ?>
 			</div>
 		</article>

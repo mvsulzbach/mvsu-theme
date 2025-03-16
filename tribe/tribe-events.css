@@ -164,12 +164,13 @@
     flex-basis: 35%;
     justify-content: space-evenly;
     align-items: center;
-    mvsu-registration {
+    mvsu-registration div, mvsu-registration {
         flex: auto;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         gap: 20px;
+        height: 100%;
     }
 }
 
@@ -210,4 +211,8 @@ mvsu-registration div {
     width: initial;
     overflow: hidden;
     scrollbar-gutter: stable;
+}
+
+.tribe-events-schedule-wrapper {
+    flex-wrap: wrap;
 }
