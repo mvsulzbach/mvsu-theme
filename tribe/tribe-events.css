@@ -8,7 +8,7 @@
     background-color: #c0c0c0;
     font-size: 20px;
     display: block;
-    margin: 1.5em 0;
+    margin: 1em 0;
     padding: 6px 10px;
 }
 
@@ -107,7 +107,7 @@
 
 .tribe-events .tribe-events-calendar-list__event-row {
     border-top: 10px #c00000 solid;
-    margin: 1.5em 1em !important;
+    margin: 0.75em 1em !important;
     background-color: white;
     .tribe-events-calendar-list__event-wrapper {
         padding-left: 24px !important;
@@ -215,4 +215,23 @@ mvsu-registration div {
 
 .tribe-events-schedule-wrapper {
     flex-wrap: wrap;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__day {
+    border-width: 1px;
+    border-color: #444444;
+    background-color: whitesmoke;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__calendar-event {
+    border-top: 5px #c00000 solid;
+}
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__calendar-event.weekend {
+    border-top-color: #398C42;
+}
+
+.tribe-events-calendar-month__calendar-event-tooltip .teilnahme {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
 }
