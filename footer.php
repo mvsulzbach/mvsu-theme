@@ -34,6 +34,13 @@
 </div><!-- .site -->
 
 <?php wp_footer(); ?>
-<script src="//localhost:35729/livereload.js"></script>
+<?php
+    switch (wp_get_environment_type()) {
+        case 'local': ?>
+            <script src="//localhost:35729/livereload.js"></script>
+        <?php break;
+    }
+?>
+
 </body>
 </html>
