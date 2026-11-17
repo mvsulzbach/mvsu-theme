@@ -8,7 +8,6 @@ Template:       twentyfifteen
 Version:        2.0
 */
 @import url("../twentyfifteen/style.css");
-@import url("mvsu-components/styles.css");
 
 /* noto-serif-regular - latin */
 @font-face {

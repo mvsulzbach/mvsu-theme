@@ -4,6 +4,24 @@
     padding-right: 0px;
 }
 
+.tribe-events .tribe-events-c-top-bar__datepicker:has(+ .km-event-filter) {
+    flex: 0 1 auto;
+}
+
+.tribe-events .km-event-filter {
+    display: inline-flex;
+    align-items: center;
+    margin: 8px 0 8px 32px;
+    max-width: 100%;
+}
+
+.tribe-events .km-event-filter label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
 .tribe-events .tribe-events-calendar-list__month-separator {
     background-color: #c0c0c0;
     font-size: 20px;
@@ -37,7 +55,8 @@
         margin: 0;
     }
     .tribe-events-c-subscribe-dropdown__button {
-        width: 300px;
+        width: min(300px, 100%);
+        box-sizing: border-box;
     }
 
     .tribe-events-schedule-wrapper {
@@ -46,8 +65,8 @@
     }
 
     .tribe-events-schedule {
-        width: 50%;
-        float: left;
+        width: 100%;
+        float: none;
         align-items: center;
     }
 
@@ -57,30 +76,36 @@
     }
 
     .hentry {
+        display: block;
+        clear: both;
+        width: 100%;
         padding-top: 0;
         margin: 0;
         box-shadow: none;
     }
+
+    .tribe-events-single-event-description {
+        width: 100%;
+        overflow-wrap: anywhere;
+    }
     
     .tribe-events-event-meta.tribe-events-single-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+        gap: 20px;
+        box-sizing: border-box;
         background: #e5e5e5;
         margin: 30px 0;
+        padding: 20px;
         border: 1px solid #eee;
         width: 100%;
 
-        .tribe-events-meta-group-details {
-            margin: 20px 0 0;
-            padding: 0 4%;
-
-            .tribe-events-single-section-title {
-                font-size: 1.4em;
-                font-weight: 700;
-            }
-        }
-
-        .tribe-events-meta-group-venue {
-            margin: 20px 0 0;
-            padding: 0 4%;
+        > .tribe-events-meta-group {
+            min-width: 0;
+            width: auto;
+            margin: 0;
+            padding: 0;
+            overflow-wrap: anywhere;
 
             .tribe-events-single-section-title {
                 font-size: 1.4em;
@@ -159,21 +184,6 @@
     margin-top: 5px;
 }
 
-.teilnahme {
-    display: flex;
-    flex-basis: 35%;
-    justify-content: space-evenly;
-    align-items: center;
-    mvsu-registration div, mvsu-registration {
-        flex: auto;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 20px;
-        height: 100%;
-    }
-}
-
 .participation_buttons, .cancel_buttons {
     min-width: 130px;
     button {
@@ -203,9 +213,6 @@
     resize: horizontal;
 }
 
-mvsu-registration div {
-    text-align: center;
-}
 .cdk-global-scrollblock {
     position: initial;
     width: initial;
@@ -228,10 +235,4 @@ mvsu-registration div {
 }
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__calendar-event.weekend {
     border-top-color: #398C42;
-}
-
-.tribe-events-calendar-month__calendar-event-tooltip .teilnahme {
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
 }

@@ -26,12 +26,12 @@ if( tribe_get_start_date( $event , false , "N") > 4 ){
 
 $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event', 'tribe-common-g-row', 'tribe-common-g-row--gutters' ], $event->ID );
 ?>
-<div <?php tribe_classes( $container_classes ); ?>>
+<li <?php tec_classes( $container_classes ); ?>>
 
 	<?php $this->template( 'list/event/date-tag', [ 'event' => $event ] ); ?>
 
 	<div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
-		<article <?php tribe_classes( $event_classes ) ?>>
+		<article <?php tec_classes( $event_classes ) ?>>
 			<?php $this->template( 'list/event/featured-image', [ 'event' => $event ] ); ?>
 
 			<div class="tribe-events-calendar-list__event-details tribe-common-g-col">
@@ -42,16 +42,7 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event', 't
 					<?php $this->template( 'list/event/venue', [ 'event' => $event ] ); ?>
 				</header>
 			</div>
-
-			<div class="teilnahme">
-
-				<?php 
-				$event_id = get_the_ID();
-				if (mvsu_event_has_registration($event_id)) : ?>
-					<mvsu-registration initial="<?php echo getParticipation(get_current_user_id(), $event_id) ?>" divid="<?php the_ID() ?>" title="<?php the_title() ?>" schedule_details="<?php echo tribe_events_event_schedule_details(null, '', '', false) ?>" ></mvsu-registration>
-				<?php endif; ?>
-			</div>
 		</article>
 	</div>
 
-</div>
+</li>
