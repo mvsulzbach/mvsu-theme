@@ -216,4 +216,13 @@ function my_generate_ical_feed( $post = null ) {
 
 	}
 	add_action( 'wp_enqueue_scripts', 'mvsu_scripts' );
+
+
+	function filterWpSeo($url, $post) {
+		global $userAccessManager;
+        return ($userAccessManager->getAccessHandler()->checkObjectAccess($post->post_type, $post->ID) === true) ? $url : false;
+    }
+
+	add_filter( 'wpseo_xml_sitemap_post_url', 'filterWpSeo', 10, 2 );
+	add_filter( 'xmlrpc_enabled', '__return_false' );
 ?>
