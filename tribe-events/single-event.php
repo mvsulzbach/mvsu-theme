@@ -110,9 +110,11 @@ $cost  = tribe_get_formatted_cost( $event_id );
 
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
-			<div class="tribe-events-single-event-description tribe-events-content">
-				<?php the_content(); ?>
-			</div>
+			<?php if(is_user_logged_in()) : ?>
+				<div class="tribe-events-single-event-description tribe-events-content">
+					<?php the_content(); ?>
+				</div>
+			<?php endif; ?>
 			<!-- .tribe-events-single-event-description -->
 
 			<!-- Event meta -->
