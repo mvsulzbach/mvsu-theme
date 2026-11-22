@@ -1,5 +1,4 @@
 <?php
-include_once("mail.php");
 
 function mvsu_create_user($email_address,$display_name,$register){
 	if( null == username_exists( $email_address ) ) {
